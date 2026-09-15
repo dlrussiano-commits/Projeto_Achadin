@@ -1,0 +1,88 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <im src="{% static 'core/icones/logo.svg' %}">
+    <title >Achadin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
+</head>
+<body>
+
+<nav class="home_bar">
+    <a href="{% url 'achadin_home' %}" class="icone_achadin">
+        <img src="{% static 'core/icones/icone_achadin.svg' %}" alt="Icone do Achadin">
+    </a>
+    <a class="home_bar_a">Ofertas do Dia</a>
+    <a class="home_bar_a">Comprar novamente</a>
+    <a class="home_bar_a">Carrinho</a>
+    <a class="home_bar_a">Conta</a>
+    <a class="home_bar_a">Sair</a>
+</nav>
+
+<div class="layout_principal">
+    <aside class="coluna_lateral"></aside>
+
+    <main class="conteudo_central">
+        <nav>
+            <a href="{% url 'exibir_categorias' 'r.l' %}">
+                <img src="{% static 'core/icones/home_r.l.svg' %}" alt="Restaurantes e Lanchonetes" class="botao_categoria_imagem">
+                <span class="atributos_span">Restaurantes e Lanchonetes</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'mercados' %}">
+                <img src="{% static 'core/icones/home_mercados.svg' %}" alt="Mercados" class="botao_categoria_imagem">
+                <spam class="atributos_span">Mercados</spam>
+            </a>
+            <a href="{% url 'exibir_categorias' 'r.c.a' %}">
+                <img src="{% static 'core/icones/home_r.c.a.svg' %}" class="botao_categoria_imagem" alt="Roupas, Calçados e Acessórios">
+                <span class="atributos_span">Roupas, Calçados e Acessórios</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'f.c' %}">
+                <img src="{% static 'core/icones/home_f.c.svg' %}" class="botao_categoria_imagem" alt="Ferramentas e Comstrução">
+                <span class="atributos_span">Ferramentas e Construção</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'm.b'%}">
+                <img src="{% static 'core/icones/home_m.b.svg' %}" class="botao_categoria_imagem" alt="Moda e Beleza">
+                <span class="atributos_span">Moda e Beleza</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'pet-shop' %}">
+                <img src="{% static 'core/icones/home_pet-shop.svg' %}" class="botao_categoria_imagem" alt="Pet-shop">
+                <span class="atributos_span">Pet-shop</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'saude' %}">
+                <img src="{% static 'core/icones/home_saude.svg' %}" class="botao_categoria_imagem" alt="Saúde">
+                <span class="atributos_span">Saúde</span>
+            </a>
+            <a href="{% url 'exibir_categorias' 'saude' %}">
+                <img src="{% static 'core/icones/home_m.g.svg' %}" class="botao_categoria_imagem" alt="Músicas e Games">
+                <span class="atributos_span">Músicas e Games</span>
+            </a>
+        </nav>
+
+        <div class="nome_categoria">Restaurantes e Lanchonetes</div>
+        <div class="estrutura_loop_logos">
+            <div class="loop_logos">
+                {% for loja in lojas %}
+                    <img src="{{ loja.logo.url }}" alt="{{loja.nome}}">
+                {% endfor %}
+                {% for loja in lojas %}
+                    <img src="{{ loja.logo.url }}" alt="{{ loja.nome}}">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="nome_categoria">Mercados</div>
+
+        <div class="nome_categoria">Roupas, Calçados e Acessórios</div>
+
+        <div class="nome_categoria">Ferramentas e Construção</div>
+
+    </main>
+
+    <aside class="coluna_lateral"></aside>
+</div>
+
+</body>
+
+</html>

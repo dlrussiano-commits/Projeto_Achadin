@@ -1,0 +1,105 @@
+
+h1 {
+    color: DodgerBlue;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+
+h2 {
+    margin: 50px 0 0 0;
+    color: DodgerBlue;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+body {
+
+    background-color: GhostWhite;
+
+}
+
+.layout_principal {
+    display: flex;
+    min-height: 100vh
+}
+
+.conteudo_central {
+    flex-glow: 1;
+    padding: 0px 20px;
+}
+
+.coluna_lateral {
+    width: 150px ;
+    flex-shrink: 0;
+    background-color: WhiteSmoke;
+}
+
+.home_bar {
+    padding: 7px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: #1C1C1C;
+}
+
+
+.home_bar_a {
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    color:AliceBlue;
+    background-color: DodgerBlue;
+    padding: 10px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.home_bar_a:hover {
+    color:LightSteelBlue;
+    background-color:SteelBlue;
+}
+
+.botao_categoria_imagem {
+    margin: 80px 0 0 20px;
+    width: 170px;
+    height: 170px;
+}
+
+.atributos_span {
+    color: DarkSlateBlue;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nome_categoria {
+    color: AliceBlue;
+    font-size: 30px;
+    background-color: DodgerBlue;
+    padding: 15px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: Helvetica, sans-serif;
+    margin: 100px 1100px 0 0;
+    font-weight: 800;
+
+}
+
+.loop_logos_estrutura {
+    overflow: hidden;
+}
+
+.loop_logos {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: rolar 30s linear infinite;
+
+}
+
+@keyframes rolar {
+    from { trasform: transtaleX(0); }
+    to { trasform: transtaleX(-50%); }
+}
