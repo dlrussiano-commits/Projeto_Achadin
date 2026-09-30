@@ -4,3 +4,6 @@ Release 1(1ªVA):
   - O sistema deve permitir a criação de conta(Lojista/Cliente);
   - O sistema deve permitir a criação de lojas pelo Lojista;
   - O sistema deve permitir a criação, edição e exclusão de produtos pelo Lojista.
+
+Contato Davi:
+Contato Rhuan: rfilipetrajano@gmail.com
