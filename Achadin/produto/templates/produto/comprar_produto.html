@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Achadin</title>
+    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
+    <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'produto/desing_comprar.css' %}">
+</head>
+<body>
+  <div class="layout_principal">
+    <main class="conteudo_central">
+      <div>
+        <div><img src="{{ produto.foto.url }}" alt="{{ produto.nome }}"></div>
+        <div>
+          <h3>{{ produto.descricao }}</h3>
+        </div>
+        <!-- Essa parte foi feita com JS. Fiz isso apenas para poder mudar
+        o botão na página, sem precisar contruir a lógica inteira de backend em
+        cima da comprado do produto-->
+        <a href="#" onclick="this.textContent='Comprado'; return false;">Comprar</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

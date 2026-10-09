@@ -23,5 +23,6 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('loja/', include('loja.urls'))
+    path('loja/', include('loja.urls')),
+    path('produto/', include('produto.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

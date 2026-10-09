@@ -30,7 +30,7 @@
             </div>
             <div class="lista_produtos">
                 {% for produto in loja.produtos.all %}
-                    <div class="card_produtos">
+                    <a class="card_produtos" href="{% url 'comprar' produto.id %}">
                         {% if produto.foto %}
                             <img src="{{ produto.foto.url }}" alt="{{ produto.nome }}">
                         {% endif %}
@@ -40,7 +40,7 @@
                         <div>
                             <h3> R$ {{ produto.preco }}</h3>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         </main>
