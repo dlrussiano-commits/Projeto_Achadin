@@ -1,10 +1,53 @@
+
+{% load static %}
 <!DOCTYPE html>
-<html lang="br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <title>Achadin</title>
+    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
+    <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
+
 </head>
+
+
 <body>
-<h1></h1>
+
+    <nav class="home_bar">
+        <a href="{% url 'achadin_home' %}" class="icone_achadin">
+            <img src="{% static 'core/icones/icone_achadin.svg'%}" alt="ícone do Achadin">
+        </a>
+        <a class="home_bar_a">Ofertas do Dia</a>
+        <a class="home_bar_a">Comprar novamente</a>
+        <a class="home_bar_a">Carrinho</a>
+        <a href="{% url 'criar' %}" class="home_bar_a">Criar Loja</a>
+        <a class="home_bar_a">Conta</a>
+        <a class="home_bar_a">Sair</a>
+    </nav>
+
+    <div class="layout_principal">
+         <aside class="coluna_lateral"></aside>
+
+        <main class="conteudo_central">
+            <div class="lista-lojas">
+                {% for loja in lojas %}
+                    <a class="card-loja" href="{% url 'detalhes' loja.id %}">
+                        {% if loja.banner %}
+                            <img src="{{ loja.banner.url }}" class="card-banner" alt="{{ loja.nome }}">
+                        {% endif %}
+                        <div class="card-info">
+                            <img src="{{ loja.logo.url }}" class="card-logo" alt="logo">
+                            <h3 class="fonte_da_logo">{{ loja.nome }}</h3>
+                        </div>
+                    </a>
+                {% empty %}
+                <p>Nenhuma loja encontrada nessa categoria ainda</p>
+                {% endfor %}
+            </div>
+        </main>
+
+        <aside class="coluna_lateral"></aside>
+    </div>
+
 </body>
 </html>

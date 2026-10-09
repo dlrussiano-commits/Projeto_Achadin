@@ -9,4 +9,6 @@ def home(request):
 
 def exibir_categorias(request, categoria):
     lojas = Loja.objects.filter(categoria=categoria)
-    return render (request, 'core/exibir_categorias.html', {'lojas':lojas})
+    categorias_dict = dict(Loja.CATEGORIAS)
+    categoria_nome = categorias_dict.get(categoria)
+    return render (request, 'core/exibir_categorias.html', {'lojas':lojas, 'categoria_nome':categoria_nome})

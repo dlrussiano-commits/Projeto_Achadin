@@ -1,0 +1,70 @@
+
+
+.loja_banner {
+    width: 1615px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.loja_logo {
+    width: 200px;
+    height: 200px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.loja_head {
+    display: flex;
+    gap: 20px;
+
+}
+
+.loja_nome {
+    font-size: 35px;
+
+}
+
+.lista_produtos {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card_produtos {
+    position: relative;
+    width: 385px;
+    height: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+}
+
+.card_produtos img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+    display: block;
+}
+
+.card_produtos h3 {
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+
+}
+
+.coluna_lateral_loja {
+    width: 150px ;
+    flex-shrink: 0;
+    background-color: WhiteSmoke;
+}
+
+.conteudo_central_loja {
+    background-color: #fff4b3;
+    flex-glow: 1;
+    padding: 0px 20px;
+}

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Achadin</title>
+    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
+    <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'loja/desing_loja.css' %}">
+</head>
+<body>
+    <nav class="home_bar">
+        <a href="{% url 'achadin_home' %}" class="icone_achadin">
+            <img src="{% static 'core/icones/icone_achadin.svg'%}" alt="ícone do Achadin">
+        </a>
+        <a class="home_bar_a">Ofertas do Dia</a>
+        <a class="home_bar_a">Comprar novamente</a>
+        <a class="home_bar_a">Carrinho</a>
+        <a href="{% url 'criar' %}" class="home_bar_a">Criar Loja</a>
+        <a class="home_bar_a">Conta</a>
+        <a class="home_bar_a">Sair</a>
+    </nav>
+
+    <div class="layout_principal">
+        <main class="conteudo_central">
+            <img src="{{ loja.banner.url }}" class="loja_banner" alt="{{ loja.nome }}">
+            <div class="loja_head">
+                <img src="{{ loja.logo.url }}" class="loja_logo"  alt="logo">
+                <h2 class="loja_nome">{{ loja.nome }}</h2>
+            </div>
+            <div class="lista_produtos">
+                {% for produto in loja.produtos.all %}
+                    <div class="card_produtos">
+                        {% if produto.foto %}
+                            <img src="{{ produto.foto.url }}" alt="{{ produto.nome }}">
+                        {% endif %}
+                        <div>
+                            <h3> {{ produto.nome }}</h3>
+                        </div>
+                        <div>
+                            <h3> R$ {{ produto.preco }}</h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+h1 {
+    color: DodgerBlue;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    padding-bottom: 20px;
+    font-size: 50px;
+}
+
+.form_nome {
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: DodgerBlue;
+    margin-top: 20px;
+
+}
+
+.form_display {
+    display: grid;
+    gap: 10px;
+}
+
+.conteudo_central_2 {
+    flex-glow: 1;
+    padding: 0px 540px 0px 500px;
+}
+
+.campos {
+    font-size: 40px;
+
+}
+
+.home_bar_a_2 {
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    color:AliceBlue;
+    background-color: #1A6ED6;
+    padding: 10px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 20px;
+
+}
+
+.form_externo {
+    background-color: #1E293B;
+    border-radius: 20px;
+    padding: 60px;
+
+}

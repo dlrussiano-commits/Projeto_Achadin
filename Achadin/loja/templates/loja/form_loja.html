@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Achadin</title>
+    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
+    <link rel="stylesheet" href="{% static 'loja/desing_form.css' %}">
+</head>
+<body>
+    <div class="layout_principal">
+        <aside class="coluna_lateral"></aside>
+        <main class="conteudo_central_2">
+            <div class="form_externo">
+                <h1>{% if form.instance.pk %}Editar loja{% else %}Criar loja{% endif %}</h1>
+
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="form_display">
+                    <label class="form_nome">{{ form.nome.label }}</label>
+                    {{ form.nome }}
+                    {{ form.nome.errors }}
+                    <label class="form_nome">{{ form.logo.label}}</label>
+                    {{ form.logo }}
+                    {{ form.logo.errors }}
+                    <label class="form_nome"> {{ form.banner.label }}</label>
+                    {{ form.banner }}
+                    {{ form.banner.errors }}
+                    <label class="form_nome"> {{ form.categoria.label }}</label>
+                    {{ form.categoria }}
+                    {{ form.categoria.errors }}
+                </div>
+                <button type="submit" class="home_bar_a_2">Salvar</button>
+                <a class="home_bar_a_2" href="{% url 'achadin_home' %}">Voltar</a>
+            </form>
+            </div>
+        </main>
+        <aside class="coluna_lateral"></aside>
+    </div>
+</body>
+</html>

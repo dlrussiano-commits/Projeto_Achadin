@@ -1,11 +1,4 @@
 
-h1 {
-    color: DodgerBlue;
-    font-family: Helvetica, sans-serif;
-    font-weight: 800;
-    padding-bottom: 20px;
-}
-
 h2 {
     margin: 50px 0 0 0;
     color: DodgerBlue;
@@ -23,6 +16,7 @@ body {
 .layout_principal {
     display: flex;
     min-height: 100vh
+    justify-content: center;
 }
 
 .conteudo_central {
@@ -50,7 +44,7 @@ body {
     font-family: Helvetica, sans-serif;
     font-weight: 600;
     color:AliceBlue;
-    background-color: DodgerBlue;
+    background-color: #1A6ED6;
     padding: 10px 14px;
     border-radius: 20px;
     text-decoration: none;
@@ -78,28 +72,12 @@ body {
     color: AliceBlue;
     font-size: 30px;
     background-color: DodgerBlue;
-    padding: 15px 20px;
+    padding: 0px 100px;
+    display: flex;
     border-radius: 15px;
     text-decoration: none;
     font-family: Helvetica, sans-serif;
-    margin: 100px 1100px 0 0;
+    margin: 110px 1100px 0 0;
     font-weight: 800;
 
-}
-
-.loop_logos_estrutura {
-    overflow: hidden;
-}
-
-.loop_logos {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: rolar 30s linear infinite;
-
-}
-
-@keyframes rolar {
-    from { trasform: transtaleX(0); }
-    to { trasform: transtaleX(-50%); }
 }
