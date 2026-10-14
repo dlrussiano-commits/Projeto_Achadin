@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from rest_framework.exceptions import ValidationError
 from phonenumber_field.modelfields import PhoneNumberField
 from conta_cliente.models import validacao_cpf
@@ -12,7 +12,7 @@ def validacao_cnpj(cnpj):
         raise ValidationError("Seu CNPJ deve conter 14 números")
 
 class Logista(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nome = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
     cpf = models.CharField(unique=True, validators=[validacao_cpf])

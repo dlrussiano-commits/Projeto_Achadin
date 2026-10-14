@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Achadin</title>
+    <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
     <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
     <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
     <link rel="stylesheet" href="{% static 'loja/desing_loja.css' %}">
+    <link rel="stylesheet" href="{% static 'produto/desing_comprar.css' %}" >
 </head>
 <body>
     <nav class="home_bar">
@@ -26,19 +28,27 @@
             <img src="{{ loja.banner.url }}" class="loja_banner" alt="{{ loja.nome }}">
             <div class="loja_head">
                 <img src="{{ loja.logo.url }}" class="loja_logo"  alt="logo">
-                <h2 class="loja_nome">{{ loja.nome }}</h2>
+                <div class="info_loja">
+                    <h2 class="loja_nome">{{ loja.nome }}</h2> 
+                    <img class="estrelas" src="{% static 'loja/estrelas-azul.svg' %}">
+                </div> 
             </div>
             <div class="lista_produtos">
                 {% for produto in loja.produtos.all %}
                     <a class="card_produtos" href="{% url 'comprar' produto.id %}">
                         {% if produto.foto %}
-                            <img src="{{ produto.foto.url }}" alt="{{ produto.nome }}">
+                            <img class="card_produtos_img" src="{{ produto.foto.url }}" alt="{{ produto.nome }}">
                         {% endif %}
                         <div>
-                            <h3> {{ produto.nome }}</h3>
+                            <h2> {{ produto.nome }}</h2>
                         </div>
                         <div>
-                            <h3> R$ {{ produto.preco }}</h3>
+                            <h3> R$ {{ produto.preco|floatformat:2 }}</h3>
+                        </div>
+
+                        <div class="ad_carrinho">
+                            <img class="carrinho_simb" src="{% static 'loja/carrinho_simb.svg' %}">
+                            <h1 class="nome_carrinho">Carrinho</h1>
                         </div>
                     </a>
                 {% endfor %}

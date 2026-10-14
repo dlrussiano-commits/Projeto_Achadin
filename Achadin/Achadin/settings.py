@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,8 +42,15 @@ INSTALLED_APPS = [
     'conta_logista',
     'loja',
     'core',
-    'produto'
+    'produto',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +60,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 ROOT_URLCONF = 'Achadin.urls'
 
@@ -103,7 +120,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APP": {
+            "client_id": os.environ.get("GOOGLE_CLIENT_ID", ""),
+            "secret": os.environ.get("GOOGLE_CLIENT_SECRET", ""),
+        },
+        "SCOPE": ["profile", "email"],
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
@@ -122,3 +147,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / 'media'  # onde os arquivos ficam fisicamente no servidor
 MEDIA_URL = '/media/'            # o prefixo da URL para acessar esses arquivos
+
+AUTH_USER_MODEL = "core.User"
+
+'''Obs: Algumas configurações da API do google foram feitas apenas imitando a documentação, 
+ nós temos ciência do processo geral, mas deixamos os detalhes e apps específicos do google.auth, 
+ midlleware e iden para a segunda VA, até lá, teremos um conchecimento maior sobre o assunto'''

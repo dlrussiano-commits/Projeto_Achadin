@@ -4,23 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Achadin</title>
+    <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
     <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
     <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
     <link rel="stylesheet" href="{% static 'produto/desing_comprar.css' %}">
 </head>
 <body>
+    <nav class="home_bar">
+        <a href="{% url 'achadin_home' %}" class="icone_achadin">
+            <img src="{% static 'core/icones/icone_achadin.svg'%}" alt="ícone do Achadin">
+        </a>
+        <a class="home_bar_a">Ofertas do Dia</a>
+        <a class="home_bar_a">Comprar novamente</a>
+        <a class="home_bar_a">Carrinho</a>
+        <a href="{% url 'criar' %}" class="home_bar_a">Criar Loja</a>
+        <a class="home_bar_a">Conta</a>
+        <a class="home_bar_a">Sair</a>
+    </nav>
   <div class="layout_principal">
     <main class="conteudo_central">
-      <div>
-        <div><img src="{{ produto.foto.url }}" alt="{{ produto.nome }}"></div>
-        <div>
-          <h3>{{ produto.descricao }}</h3>
-        </div>
-        <!-- Essa parte foi feita com JS. Fiz isso apenas para poder mudar
-        o botão na página, sem precisar contruir a lógica inteira de backend em
-        cima da comprado do produto-->
-        <a href="#" onclick="this.textContent='Comprado'; return false;">Comprar</a>
+      <div class="centralizacao">
+        <div><img class="imagem_produto" src="{{ produto.foto.url }}" alt="{{ produto.nome }}"></div>
+          <div class="display_itens">
+            <h2 class="nome_comprar">{{ produto.nome }}</h2>
+            <div class="estrelas"><img src="{% static 'produto/imagens/estrelas.png' %}"></div>
+            <div class="div_descricao"><h3 class="descricao">{{ produto.descricao }}</h3></div>
+          </div>
+          <div class="display_itens_preco">
+              <h2 class="preco">R${{ produto.preco|floatformat:2 }}</h2>
+
+              <h2 class="tag_oferta">Mega Oferta Prime</h2>
+
+              <div class="caixa_preco"> <h1>Entrega GRÁTIS HOJE, no seu primeiro pedido na {{ loja.nome }}! Pedidos acima de R$ 30 em até 40 minutos, direto na sua porta.
+                  Seu pedido é separado com todo cuidado, passa por uma conferência antes de sair e chega direto na sua porta em até 40 minutos. </h1> </div>
+
+              <div class="caixa_preco"> <h1>Além do frete grátis, você ainda acompanha cada etapa da entrega em tempo real e conta com atendimento rápido caso precise de qualquer ajuda</h1> </div>
+
+            <a class="botao_comprar" href="{% url 'entregando' %}">Comprar</a>
+          </div>
       </div>
+        <div class="linha"></div>
     </main>
   </div>
 </body>

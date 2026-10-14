@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Criar Loja">
+  <rect width="64" height="64" rx="16" fill="#2563eb"/>
+  <g transform="translate(16 16) scale(1.3333)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l1.5-5h15L21 9"/>
+    <path d="M3 9a3 3 0 0 0 6 0a3 3 0 0 0 6 0a3 3 0 0 0 6 0"/>
+    <path d="M5 12.5V20h14v-7.5"/>
+    <path d="M10 20v-4.5h4V20"/>
+  </g>
+</svg>

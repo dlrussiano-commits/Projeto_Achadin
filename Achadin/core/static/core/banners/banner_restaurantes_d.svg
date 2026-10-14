@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 720" width="450" height="720">
+  <defs>
+    <linearGradient id="bgrestaurantes_d" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#3B3F66"/><stop offset="1" stop-color="#10122B"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowrestaurantes_d" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="strestaurantes_d" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="20" height="40" fill="#fff" opacity=".07"/></pattern>
+    <pattern id="dtrestaurantes_d" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2.4" fill="#fff" opacity=".18"/></pattern>
+    <clipPath id="cliprestaurantes_d"><rect width="450" height="720" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#cliprestaurantes_d)" font-family="Helvetica, Arial, sans-serif">
+    <rect width="450" height="720" fill="url(#bgrestaurantes_d)"/>
+    <circle cx="380" cy="120" r="170" fill="#fff" opacity=".07"/><circle cx="40" cy="560" r="150" fill="#000" opacity=".08"/>
+
+    <text x="225" y="58" text-anchor="middle" font-size="20" fill="#FFFFFF" opacity=".92">Fome de madrugada?</text>
+    <text x="225" y="118" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Lanche</text>
+    <text x="225" y="176" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">a qualquer</text>
+    <text x="225" y="234" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-.5">hora</text>
+
+    <rect x="150.0" y="262" width="150" height="38" rx="10" fill="#fff"/>
+    <text x="225" y="287" text-anchor="middle" font-size="19" font-weight="800" fill="#10122B">Peça agora</text>
+    <text x="225" y="332" text-anchor="middle" font-size="17" fill="#FFFFFF" opacity=".95">Hambúrgueres artesanais e muito mais</text>
+
+    <ellipse cx="225" cy="590" rx="190" ry="48" fill="#000" opacity=".15"/>
+    <ellipse cx="225" cy="580" rx="190" ry="46" fill="#fff" opacity=".22"/>
+    <ellipse cx="225" cy="560" rx="150" ry="150" fill="url(#glowrestaurantes_d)"/>
+    <g transform="translate(225,490) scale(1.05)">
+    <ellipse cx="0" cy="62" rx="105" ry="14" fill="#000" opacity=".18"/>
+    <path d="M-95 -10 Q-95 -85 0 -85 Q95 -85 95 -10 Z" fill="#E8A04A"/>
+    <path d="M-95 -10 Q-95 -85 0 -85 Q95 -85 95 -10 Z" fill="url(#shine)"/>
+    <circle cx="-40" cy="-55" r="4" fill="#FFF3D6"/><circle cx="-5" cy="-68" r="4" fill="#FFF3D6"/>
+    <circle cx="35" cy="-52" r="4" fill="#FFF3D6"/><circle cx="62" cy="-34" r="4" fill="#FFF3D6"/>
+    <path d="M-100 -8 Q-80 8 -60 -4 Q-40 10 -20 -4 Q0 10 20 -4 Q40 10 60 -4 Q80 8 100 -8 L100 6 L-100 6 Z" fill="#5FBF3A"/>
+    <path d="M-92 4 L92 4 L92 20 L60 20 L45 40 L30 20 L-92 20 Z" fill="#FFC531"/>
+    <rect x="-96" y="18" width="192" height="26" rx="13" fill="#5A3320"/>
+    <path d="M-92 44 L92 44 Q92 70 60 70 L-60 70 Q-92 70 -92 44 Z" fill="#E8A04A"/>
+    </g>
+
+    <text x="225" y="690" text-anchor="middle" font-size="14" fill="#FFFFFF" opacity=".9">Exclusivo no Achadin</text>
+  </g>
+</svg>

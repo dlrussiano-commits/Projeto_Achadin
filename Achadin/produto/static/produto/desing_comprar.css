@@ -1,0 +1,124 @@
+
+.centralizacao {
+    display: flex;
+
+}
+
+.botao_comprar {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: white;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    background-color: DodgerBlue;
+    border-radius: 30px;
+    height: 60px;
+    width: 240px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nome_comprar {
+    color: black;
+
+}
+
+.descricao {
+    font-family: Helvetica, sans-serif;
+    background-color: WhiteSmoke;
+
+}
+
+.div_descricao {
+    background-color: WhiteSmoke;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+.imagem_produto {
+    margin-top: 110px;
+    width: 700px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.display_itens {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 90px;
+    margin-top: 60px;
+}
+
+.display_itens_preco {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 90px;
+    margin-top: 70px;
+    border: 2px solid #595959;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #edf2f7
+}
+
+.preco {
+    color: black;
+    font-size: 40px;
+    margin: 0 0 0 40px;
+}
+
+.estrelas {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 115px;
+    height: 30px;
+
+}
+
+.estrelas img {
+    width: 115px;
+    height: 30px;
+}
+
+.tag_oferta {
+    margin-left: 40px;
+    background-color: #e60039;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    width: 160px;
+    height: 30px;
+}
+
+.caixa_preco {
+    background-color: #999999;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 200px;
+    margin-left: 20px;
+}
+
+.caixa_preco h1 {
+    color: white;
+    font-size: 15px;
+    font-family: Helvetica, sans-serif;
+}
+
+.linha {
+    margin-top: 70px;
+    margin-left: 50px;
+    width: 1500px;
+    height: 2px;
+    background-color: #999999;
+    borde-radius: 20px;
+}
+

@@ -12,6 +12,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 from rest_framework.exceptions import ValidationError
 
+from django.conf import settings
+
 # Create your models here.
 
 # Como o Django não tem um campo pronto de CPF, é necessário fazer uma validação
@@ -22,7 +24,7 @@ def validacao_cpf(cpf):
 
 
 class Cliente(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # Nome do usuário (geralmente tem 30 caracteres)
     nome = models.CharField(max_length=30)
     email = models.EmailField(unique=True)

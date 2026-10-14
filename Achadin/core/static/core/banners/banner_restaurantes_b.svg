@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 720" width="450" height="720">
+  <defs>
+    <linearGradient id="bgrestaurantes_b" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#FF5A36"/><stop offset="1" stop-color="#B8231A"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowrestaurantes_b" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="strestaurantes_b" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="20" height="40" fill="#fff" opacity=".07"/></pattern>
+    <pattern id="dtrestaurantes_b" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2.4" fill="#fff" opacity=".18"/></pattern>
+    <clipPath id="cliprestaurantes_b"><rect width="450" height="720" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#cliprestaurantes_b)" font-family="Helvetica, Arial, sans-serif">
+    <rect width="450" height="720" fill="url(#bgrestaurantes_b)"/>
+    <rect width="450" height="720" fill="url(#dtrestaurantes_b)"/><circle cx="60" cy="140" r="130" fill="#fff" opacity=".06"/>
+
+    <text x="225" y="58" text-anchor="middle" font-size="20" fill="#FFFFFF" opacity=".92">Hoje é dia de pizza</text>
+    <text x="225" y="118" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Pizza</text>
+    <text x="225" y="176" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">quentinha</text>
+    <text x="225" y="234" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-.5">na sua porta</text>
+
+    <rect x="128.0" y="262" width="194" height="38" rx="10" fill="#fff"/>
+    <text x="225" y="287" text-anchor="middle" font-size="19" font-weight="800" fill="#B8231A">Entrega rápida</text>
+    <text x="225" y="332" text-anchor="middle" font-size="17" fill="#FFFFFF" opacity=".95">As melhores pizzarias perto de você</text>
+
+    <ellipse cx="225" cy="590" rx="190" ry="48" fill="#000" opacity=".15"/>
+    <ellipse cx="225" cy="580" rx="190" ry="46" fill="#fff" opacity=".22"/>
+    <ellipse cx="225" cy="560" rx="150" ry="150" fill="url(#glowrestaurantes_b)"/>
+    <g transform="translate(225,490) scale(1.05)">
+    <ellipse cx="0" cy="88" rx="105" ry="14" fill="#000" opacity=".18"/>
+    <circle cx="0" cy="-5" r="98" fill="#D98B3A"/>
+    <circle cx="0" cy="-5" r="86" fill="#FFC857"/>
+    <circle cx="0" cy="-5" r="86" fill="url(#shine)"/>
+    <circle cx="-35" cy="-50" r="15" fill="#D63A2F"/><circle cx="-39" cy="-54" r="4" fill="#fff" opacity=".25"/><circle cx="30" cy="-55" r="15" fill="#D63A2F"/><circle cx="26" cy="-59" r="4" fill="#fff" opacity=".25"/><circle cx="-62" cy="-5" r="15" fill="#D63A2F"/><circle cx="-66" cy="-9" r="4" fill="#fff" opacity=".25"/><circle cx="5" cy="-8" r="15" fill="#D63A2F"/><circle cx="1" cy="-12" r="4" fill="#fff" opacity=".25"/><circle cx="62" cy="-12" r="15" fill="#D63A2F"/><circle cx="58" cy="-16" r="4" fill="#fff" opacity=".25"/><circle cx="-30" cy="38" r="15" fill="#D63A2F"/><circle cx="-34" cy="34" r="4" fill="#fff" opacity=".25"/><circle cx="35" cy="35" r="15" fill="#D63A2F"/><circle cx="31" cy="31" r="4" fill="#fff" opacity=".25"/><circle cx="0" cy="-85" r="15" fill="#D63A2F"/><circle cx="-4" cy="-89" r="4" fill="#fff" opacity=".25"/>
+    <g fill="#3E9B3A"><ellipse cx="-12" cy="-30" rx="9" ry="5" transform="rotate(30 -12 -30)"/>
+    <ellipse cx="50" cy="12" rx="9" ry="5" transform="rotate(-25 50 12)"/>
+    <ellipse cx="-50" cy="30" rx="9" ry="5" transform="rotate(10 -50 30)"/></g>
+    <g stroke="#B9731F" stroke-width="3" opacity=".55">
+      <line x1="0" y1="-91" x2="0" y2="81"/><line x1="-86" y1="-5" x2="86" y2="-5"/>
+      <line x1="-61" y1="-66" x2="61" y2="56"/><line x1="61" y1="-66" x2="-61" y2="56"/>
+    </g>
+    </g>
+
+    <text x="225" y="690" text-anchor="middle" font-size="14" fill="#FFFFFF" opacity=".9">Exclusivo no Achadin</text>
+  </g>
+</svg>

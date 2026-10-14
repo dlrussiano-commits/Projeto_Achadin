@@ -1,0 +1,277 @@
+[
+{
+  "model": "loja.loja",
+  "pk": 1,
+  "fields": {
+    "nome": "TrovÒo Burguer",
+    "logo": "lojas/logo/logo_trovao_burger.png",
+    "banner": "lojas/banner/N24HVGHOL5CGDF4NTTXAAD3NZU_GNL3piW.avif",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 2,
+  "fields": {
+    "nome": "Sushi Zen",
+    "logo": "lojas/logo/logo_sushi_zen.png",
+    "banner": "lojas/banner/R0425-ovo-de-pascoa-de-sushi-1200x675-1.webp",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 3,
+  "fields": {
+    "nome": "Asa Dourada",
+    "logo": "lojas/logo/logo_asa_dourada.png",
+    "banner": "lojas/banner/maxresdefault.jpg",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 4,
+  "fields": {
+    "nome": "Cachorro Louco",
+    "logo": "lojas/logo/logo_cachorro_louco.png",
+    "banner": "lojas/banner/heaven_lc_o-primeiro-cachorro-quente-da-cidade_foto-leo-feltran_0007.jpg",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 5,
+  "fields": {
+    "nome": "Chama Grill",
+    "logo": "lojas/logo/logo_chama_grill.png",
+    "banner": "lojas/banner/407d609553a738b1a9418c8c331d777e.jpg",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 6,
+  "fields": {
+    "nome": "Fatia Real",
+    "logo": "lojas/logo/logo_fatia_real.png",
+    "banner": "lojas/banner/pizza-pizzaria-gavea-rio-de-janeiro.jpg",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 7,
+  "fields": {
+    "nome": "PÒo Quente",
+    "logo": "lojas/logo/logo_pao_quente.png",
+    "banner": "lojas/banner/St.-Chico_Vitrine-Almoco-04_Wellington-Nemeth-2.webp",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 8,
+  "fields": {
+    "nome": "Rango Fßcil",
+    "logo": "lojas/logo/logo_rango_facil.png",
+    "banner": "lojas/banner/20260908112351_big_730x400_23.webp",
+    "categoria": "r.l",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 9,
+  "fields": {
+    "nome": "Bom Preþo Express",
+    "logo": "lojas/logo/logo9-bom-preco-express.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 10,
+  "fields": {
+    "nome": "Mercadinho Estrela",
+    "logo": "lojas/logo/logo10-mercadinho-estrela.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 11,
+  "fields": {
+    "nome": "Feira Viva",
+    "logo": "lojas/logo/logo11-feira-viva.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 12,
+  "fields": {
+    "nome": "Compra Certa",
+    "logo": "lojas/logo/logo12-compra-certa.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 13,
+  "fields": {
+    "nome": "Emporio UniÒo",
+    "logo": "lojas/logo/logo13-emporio-uniao.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 14,
+  "fields": {
+    "nome": "Mercado do ZÚ",
+    "logo": "lojas/logo/logo14-mercado-do-ze.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 15,
+  "fields": {
+    "nome": "SacolÒo Poular",
+    "logo": "lojas/logo/logo15-sacolao-popular.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 16,
+  "fields": {
+    "nome": "Ponto do AtacadÒo",
+    "logo": "lojas/logo/logo16-ponto-do-atacado.png",
+    "banner": "",
+    "categoria": "mercados",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 17,
+  "fields": {
+    "nome": "Estilo Urbano",
+    "logo": "lojas/logo/logo17-estilo-urbano.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 18,
+  "fields": {
+    "nome": "PÚ no ChÒo",
+    "logo": "lojas/logo/logo18-pe-no-chao.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 19,
+  "fields": {
+    "nome": "Bolsa & Cia",
+    "logo": "lojas/logo/logo19-bolsa-e-cia.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 20,
+  "fields": {
+    "nome": "Moda Norte",
+    "logo": "lojas/logo/logo20-moda-norte.png",
+    "banner": "",
+    "categoria": "m.b",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 21,
+  "fields": {
+    "nome": "Passo Certo",
+    "logo": "lojas/logo/logo21-passo-certo.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 22,
+  "fields": {
+    "nome": "Acess¾rios da Lu",
+    "logo": "lojas/logo/logo22-acessorios-da-lu.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 23,
+  "fields": {
+    "nome": "Boutique Elegance",
+    "logo": "lojas/logo/logo23-boutique-elegance.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 24,
+  "fields": {
+    "nome": "TÛnis Mania",
+    "logo": "lojas/logo/logo24-tenis-mania.png",
+    "banner": "",
+    "categoria": "r.c.a",
+    "logista": null
+  }
+},
+{
+  "model": "loja.loja",
+  "pk": 25,
+  "fields": {
+    "nome": "Pet Feliz",
+    "logo": "lojas/logo/logo25-pet-feliz.png",
+    "banner": "",
+    "categoria": "pet-shop",
+    "logista": null
+  }
+}
+]

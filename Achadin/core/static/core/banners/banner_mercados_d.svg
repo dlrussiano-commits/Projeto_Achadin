@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 720" width="450" height="720">
+  <defs>
+    <linearGradient id="bgmercados_d" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#4A9BE8"/><stop offset="1" stop-color="#1B4F9C"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowmercados_d" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stmercados_d" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="20" height="40" fill="#fff" opacity=".07"/></pattern>
+    <pattern id="dtmercados_d" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2.4" fill="#fff" opacity=".18"/></pattern>
+    <clipPath id="clipmercados_d"><rect width="450" height="720" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#clipmercados_d)" font-family="Helvetica, Arial, sans-serif">
+    <rect width="450" height="720" fill="url(#bgmercados_d)"/>
+    <circle cx="380" cy="120" r="170" fill="#fff" opacity=".07"/><circle cx="40" cy="560" r="150" fill="#000" opacity=".08"/>
+
+    <text x="225" y="58" text-anchor="middle" font-size="20" fill="#FFFFFF" opacity=".92">Sem sair de casa</text>
+    <text x="225" y="118" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Feira</text>
+    <text x="225" y="176" text-anchor="middle" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">completa</text>
+    <text x="225" y="234" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-.5">no seu celular</text>
+
+    <rect x="139.0" y="262" width="172" height="38" rx="10" fill="#fff"/>
+    <text x="225" y="287" text-anchor="middle" font-size="19" font-weight="800" fill="#1B4F9C">Frete GRÁTIS</text>
+    <text x="225" y="332" text-anchor="middle" font-size="17" fill="#FFFFFF" opacity=".95">Frutas, verduras e legumes selecionados</text>
+
+    <ellipse cx="225" cy="590" rx="190" ry="48" fill="#000" opacity=".15"/>
+    <ellipse cx="225" cy="580" rx="190" ry="46" fill="#fff" opacity=".22"/>
+    <ellipse cx="225" cy="560" rx="150" ry="150" fill="url(#glowmercados_d)"/>
+    <g transform="translate(225,490) scale(1.05)">
+    <ellipse cx="0" cy="88" rx="105" ry="14" fill="#000" opacity=".18"/>
+    <g transform="rotate(-14 -40 -40)"><rect x="-70" y="-120" width="26" height="110" rx="13" fill="#E3A24A"/>
+      <g stroke="#B9692A" stroke-width="3"><line x1="-70" y1="-96" x2="-48" y2="-92"/><line x1="-70" y1="-74" x2="-48" y2="-70"/></g></g>
+    <g fill="#5FBF3A"><circle cx="0" cy="-62" r="26"/><circle cx="-22" cy="-46" r="22"/><circle cx="24" cy="-46" r="22"/></g>
+    <path d="M52 -50 L92 -92 L78 -42 Z" fill="#FF8A3D"/><path d="M92 -92 l8 -14 m-6 12 l14 -6" stroke="#2E7D32" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-86 -44 L86 -44 L96 88 L-96 88 Z" fill="#D9A25B"/>
+    <path d="M-86 -44 L86 -44 L90 4 L-90 4 Z" fill="#000" opacity=".06"/>
+    <rect x="-34" y="14" width="68" height="48" rx="10" fill="#fff" opacity=".9"/>
+    <path d="M0 50 C-18 34 -8 22 0 30 C8 22 18 34 0 50 Z" fill="#E8374B"/>
+    </g>
+
+    <text x="225" y="690" text-anchor="middle" font-size="14" fill="#FFFFFF" opacity=".9">Exclusivo no Achadin</text>
+  </g>
+</svg>

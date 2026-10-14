@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Conta">
+  <rect width="64" height="64" rx="16" fill="#2563eb"/>
+  <g transform="translate(16 16) scale(1.3333)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M5 21a7 7 0 0 1 14 0"/>
+  </g>
+</svg>

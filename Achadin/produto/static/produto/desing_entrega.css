@@ -1,0 +1,22 @@
+
+.entrega {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entrega_img {
+    max-width: 700px;
+    border-radius: 50px;
+    margin-left: 0px;
+    margin-top: 100px;
+
+
+}
+
+.entrega_titulo {
+    margin-top: 40px;
+    color: #1c3097;
+    font-size: 40px;
+    font-family: Helvetica, sans-serif;
+}

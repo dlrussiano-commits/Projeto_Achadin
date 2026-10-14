@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Achadin</title>
+    <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
+    <link rel="stylesheet" href="{% static 'produto/desing_entrega.css' %}">
+</head>
+<body>
+    <main class="layout_principal">
+        <div class="entrega">
+            <img id="gif_entrega" class="entrega_img" src="{% static 'produto/gifs/sapo-preparando-entrega.gif' %}" alt="Entregador a caminho">
+            <h1 id="titulo_entrega"  class="entrega_titulo">Seu pedido está a caminho!</h1>
+        </div>
+    </main>
+    <!-- Essa parte foi feita com JS. Fiz isso apenas para poder mudar
+            o botão na página, sem precisar construir a lógica inteira de backend em
+            cima da compra do produto-->
+    <script>
+        const gif = document.getElementById("gif_entrega");
+        const titulo = document.getElementById("titulo_entrega");
+
+         titulo.textContent = "";
+
+        const segundoGif = "{% static 'produto/gifs/entregador-moto-movimento.gif' %}";
+
+        new Image().src = segundoGif;   // pré-carrega o segundo gif
+
+        setTimeout(() => {
+            gif.src = segundoGif;
+            titulo.textContent = "Seu pedido está a caminho!";   // troca depois de 5 segundos
+        }, 5000);
+
+        const terceiroGif = "{% static 'produto/gifs/entregador-acenando-casa.gif' %}";
+
+        new Image().src = terceiroGif;
+
+        setTimeout(() => {
+            gif.src = terceiroGif;
+            titulo.textContent = "Seu pedido chegou!";
+        }, 15000);
+
+    </script>
+</body>
+</html>
+

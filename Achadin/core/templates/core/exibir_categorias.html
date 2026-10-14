@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Achadin</title>
+    <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
     <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
     <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
 
@@ -31,13 +32,10 @@
         <main class="conteudo_central">
             <div class="lista-lojas">
                 {% for loja in lojas %}
-                    <a class="card-loja" href="{% url 'detalhes' loja.id %}">
-                        {% if loja.banner %}
-                            <img src="{{ loja.banner.url }}" class="card-banner" alt="{{ loja.nome }}">
-                        {% endif %}
+                    <a class="tirar_sublinhado"  href="{% url 'detalhes' loja.id %}">
                         <div class="card-info">
-                            <img src="{{ loja.logo.url }}" class="card-logo" alt="logo">
-                            <h3 class="fonte_da_logo">{{ loja.nome }}</h3>
+                            <img src="{{ loja.logo.url }}" class="card_logo" alt="logo">
+                            <h3 class="nome_da_logo">{{ loja.nome }}</h3>
                         </div>
                     </a>
                 {% empty %}

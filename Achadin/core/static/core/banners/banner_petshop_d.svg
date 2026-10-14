@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 720" width="450" height="720">
+  <defs>
+    <linearGradient id="bgpetshop_d" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#FF8FB1"/><stop offset="1" stop-color="#C2417A"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowpetshop_d" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stpetshop_d" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="20" height="40" fill="#fff" opacity=".07"/></pattern>
+    <pattern id="dtpetshop_d" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2.4" fill="#fff" opacity=".18"/></pattern>
+    <clipPath id="clippetshop_d"><rect width="450" height="720" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#clippetshop_d)" font-family="Helvetica, Arial, sans-serif">
+    <rect width="450" height="720" fill="url(#bgpetshop_d)"/>
+    <circle cx="380" cy="120" r="170" fill="#fff" opacity=".07"/><circle cx="40" cy="560" r="150" fill="#000" opacity=".08"/>
+
+    <text x="30" y="58"  font-size="20" fill="#FFFFFF" opacity=".92">Amor de quatro patas</text>
+    <text x="30" y="118"  font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Brinquedos</text>
+    <text x="30" y="176"  font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">e acessórios</text>
+    <text x="30" y="234"  font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-.5">para pets</text>
+
+    <rect x="30" y="262" width="172" height="38" rx="10" fill="#fff"/>
+    <text x="48" y="287"  font-size="19" font-weight="800" fill="#C2417A">Frete GRÁTIS</text>
+    <text x="30" y="332"  font-size="17" fill="#FFFFFF" opacity=".95">Tudo para o dia a dia do seu bichinho</text>
+
+    <ellipse cx="225" cy="590" rx="190" ry="48" fill="#000" opacity=".15"/>
+    <ellipse cx="225" cy="580" rx="190" ry="46" fill="#fff" opacity=".22"/>
+    <ellipse cx="225" cy="560" rx="150" ry="150" fill="url(#glowpetshop_d)"/>
+    <g transform="translate(225,490) scale(1.05)">
+    <ellipse cx="0" cy="88" rx="110" ry="13" fill="#000" opacity=".18"/>
+    <g fill="#FFFFFF">
+      <path d="M0 -8 Q-62 -14 -62 38 Q-62 84 -22 80 Q0 74 0 74 Q0 74 22 80 Q62 84 62 38 Q62 -14 0 -8 Z"/>
+      <ellipse cx="-78" cy="-14" rx="19" ry="26" transform="rotate(-24 -78 -14)"/>
+      <ellipse cx="-30" cy="-58" rx="20" ry="28" transform="rotate(-8 -30 -58)"/>
+      <ellipse cx="30" cy="-58" rx="20" ry="28" transform="rotate(8 30 -58)"/>
+      <ellipse cx="78" cy="-14" rx="19" ry="26" transform="rotate(24 78 -14)"/>
+    </g>
+    <path d="M0 52 C-26 30 -12 12 0 24 C12 12 26 30 0 52 Z" fill="#E8374B"/>
+    </g>
+
+    <text x="30" y="690"  font-size="14" fill="#FFFFFF" opacity=".9">Exclusivo no Achadin</text>
+  </g>
+</svg>
