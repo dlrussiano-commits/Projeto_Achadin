@@ -21,10 +21,11 @@
         <a class="home_bar_a">Carrinho</a>
         <a href="{% url 'criar' %}" class="home_bar_a">Criar Loja</a>
         <a class="home_bar_a">Conta</a>
+        <a href="{% url 'criar_produto' %}" class="home_bar_a">Criar produto</a>
         <form method="post" action="{% provider_login_url 'google' %}">
             {% csrf_token %}
             <button class="home_bar_a" type="submit">Entrar</button>
-            </form>
+        </form>
     </nav>
 
 <div class="layout_principal">

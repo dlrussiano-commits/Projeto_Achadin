@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from .models import Loja
 from .forms import LojaForm
+from django.shortcuts import render
 from django.urls import reverse_lazy
 # Create your views here.
 
@@ -14,11 +15,13 @@ class CreateLoja(CreateView):
     model = Loja
     template_name = 'loja/form_loja.html'
     form_class = LojaForm
+    success_url = reverse_lazy("achadin_home")
+
 
 class DeleteLoja(DeleteView):
     model = Loja
     template_name = 'loja/confirmar_exclusao.html'
-    success_url = reverse_lazy('loja:lista')
+    # success_url = reverse_lazy('loja:lista')
 
 class UpdateLoja (UpdateView):
     model = Loja
