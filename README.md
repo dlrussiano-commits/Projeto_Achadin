@@ -101,14 +101,7 @@ python manage.py runserver 8080
  
 5. Acesse em `http://127.0.0.1:8080/`.
 > Se a porta 8000 estiver bloqueada no Windows, use outra porta, como a 8080 acima.
- 
-## 🔮 Próximos passos
- 
-- Preview em tempo real da personalização da loja.
-- Escolha de cor de destaque livre (hexadecimal).
-- Upload de banner e fundo de página personalizados.
-- Carrinho de compras e histórico de pedidos.
-- Links nos resultados da busca levando à página do produto.
+
 ## 👤 Autor
  
 **Davi Russiano**
