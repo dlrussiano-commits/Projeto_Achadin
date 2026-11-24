@@ -7,36 +7,135 @@
     <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
     <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
     <link rel="stylesheet" href="{% static 'loja/desing_form.css' %}">
+    <style>
+        .pl_grade { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 900px) { .pl_grade { grid-template-columns: 1fr; } }
+        .pl_cores, .pl_estilos { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; }
+        .pl_cores label { cursor: pointer; }
+        .pl_cores input, .pl_estilos input { position: absolute; opacity: 0; }
+        .pl_bolinha { display: block; width: 36px; height: 36px; border-radius: 50%; border: 3px solid transparent; }
+        .pl_cores input:checked + .pl_bolinha { border-color: #fff; outline: 3px solid #1976f3; }
+        .pl_estilos span { display: block; padding: 10px 18px; border: 2px solid #ccc; border-radius: 8px; cursor: pointer; }
+        .pl_estilos input:checked + span { border-color: #1976f3; font-weight: bold; }
+        .pl_contador { font-size: 12px; opacity: .7; }
+        .pl_erro { color: #e53935; font-size: 13px; }
+
+        #pl_preview { --cor: #1976f3; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; background: #fff; color: #222; }
+        .pl_topo { display: flex; align-items: center; gap: 10px; padding: 12px; background: #0d1b3a; color: #fff; }
+        .pl_topo img { height: 32px; display: none; }
+        #pl_banner { padding: 40px 20px; background: var(--cor) center/cover; color: #fff; }
+        #pl_banner h2 { margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+        #pl_botao { padding: 10px 20px; border: 2px solid #fff; background: var(--cor); color: #fff; font-weight: bold; }
+        #pl_botao[data-estilo="solido"] { background: var(--cor); border-color: var(--cor); }
+        #pl_botao[data-estilo="contorno"] { background: transparent; border-color: #fff; }
+        #pl_botao[data-estilo="redondo"] { background: var(--cor); border-color: var(--cor); border-radius: 999px; }
+    </style>
 </head>
 <body>
     <div class="layout_principal">
         <aside class="coluna_lateral"></aside>
         <main class="conteudo_central_2">
             <div class="form_externo">
-                <h1>{% if form.instance.pk %}Editar loja{% else %}Criar loja{% endif %}</h1>
+                <h1>{% if form.instance.pk %}Editar loja{% else %}Personalize sua loja{% endif %}</h1>
 
-            <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-                <div class="form_display">
-                    <label class="form_nome">{{ form.nome.label }}</label>
-                    {{ form.nome }}
-                    {{ form.nome.errors }}
-                    <label class="form_nome">{{ form.logo.label}}</label>
-                    {{ form.logo }}
-                    {{ form.logo.errors }}
-                    <label class="form_nome"> {{ form.banner.label }}</label>
-                    {{ form.banner }}
-                    {{ form.banner.errors }}
-                    <label class="form_nome"> {{ form.categoria.label }}</label>
-                    {{ form.categoria }}
-                    {{ form.categoria.errors }}
+                <div class="pl_grade">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form_display">
+                        <label class="form_nome">{{ form.nome.label }}</label>
+                        {{ form.nome }}
+                        <span class="pl_erro">{{ form.nome.errors }}</span>
+
+                        <label class="form_nome">{{ form.logo.label }}</label>
+                        {{ form.logo }}
+                        <span class="pl_erro">{{ form.logo.errors }}</span>
+
+                        <label class="form_nome">{{ form.categoria.label }}</label>
+                        {{ form.categoria }}
+                        <span class="pl_erro">{{ form.categoria.errors }}</span>
+
+                        <label class="form_nome">Cor principal</label>
+                        <div class="pl_cores">
+                            <label><input type="radio" name="cores" value="b" data-hex="#1976f3" {% if form.cores.value == 'b' %}checked{% endif %}><span class="pl_bolinha" style="background:#1976f3"></span></label>
+                            <label><input type="radio" name="cores" value="db" data-hex="#0d2a6b" {% if form.cores.value == 'db' %}checked{% endif %}><span class="pl_bolinha" style="background:#0d2a6b"></span></label>
+                            <label><input type="radio" name="cores" value="p" data-hex="#ec407a" {% if form.cores.value == 'p' %}checked{% endif %}><span class="pl_bolinha" style="background:#ec407a"></span></label>
+                            <label><input type="radio" name="cores" value="r" data-hex="#e53935" {% if form.cores.value == 'r' %}checked{% endif %}><span class="pl_bolinha" style="background:#e53935"></span></label>
+                            <label><input type="radio" name="cores" value="o" data-hex="#fb8c00" {% if form.cores.value == 'o' %}checked{% endif %}><span class="pl_bolinha" style="background:#fb8c00"></span></label>
+                            <label><input type="radio" name="cores" value="y" data-hex="#fdd835" {% if form.cores.value == 'y' %}checked{% endif %}><span class="pl_bolinha" style="background:#fdd835"></span></label>
+                            <label><input type="radio" name="cores" value="g" data-hex="#43a047" {% if form.cores.value == 'g' %}checked{% endif %}><span class="pl_bolinha" style="background:#43a047"></span></label>
+                        </div>
+                        <span class="pl_erro">{{ form.cores.errors }}</span>
+
+                        <label class="form_nome">Estilo dos botões</label>
+                        <div class="pl_estilos">
+                            <label><input type="radio" name="estilo_botao" value="solido" {% if form.estilo_botao.value == 'solido' %}checked{% endif %}><span>Sólido</span></label>
+                            <label><input type="radio" name="estilo_botao" value="contorno" {% if form.estilo_botao.value == 'contorno' %}checked{% endif %}><span>Contorno</span></label>
+                            <label><input type="radio" name="estilo_botao" value="redondo" {% if form.estilo_botao.value == 'redondo' %}checked{% endif %}><span>Arredondado</span></label>
+                        </div>
+
+                        <label class="form_nome">{{ form.banner.label }}</label>
+                        {{ form.banner }}
+                        <span class="pl_erro">{{ form.banner.errors }}</span>
+
+                        <label class="form_nome">Texto do banner</label>
+                        {{ form.texto_banner }}
+                        <span class="pl_contador" id="pl_contador">0/80</span>
+                        <span class="pl_erro">{{ form.texto_banner.errors }}</span>
+                    </div>
+                    <button type="submit" class="home_bar_a_2">Salvar</button>
+                    <a class="home_bar_a_2" href="{% url 'achadin_home' %}">Voltar</a>
+                </form>
+
+                <div>
+                    <h3>Visualização da sua loja</h3>
+                    <div id="pl_preview">
+                        <div class="pl_topo">
+                            <img id="pl_logo" alt="logo"
+                                 {% if form.instance.logo %}src="{{ form.instance.logo.url }}" style="display:block"{% endif %}>
+                            <strong id="pl_nome">Nome da loja</strong>
+                        </div>
+                        <div id="pl_banner"
+                             {% if form.instance.banner %}style="background-image:url('{{ form.instance.banner.url }}')"{% endif %}>
+                            <h2 id="pl_texto">Texto do banner</h2>
+                            <button type="button" id="pl_botao" data-estilo="solido">Ver ofertas</button>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="home_bar_a_2">Salvar</button>
-                <a class="home_bar_a_2" href="{% url 'achadin_home' %}">Voltar</a>
-            </form>
+                </div>
             </div>
         </main>
         <aside class="coluna_lateral"></aside>
     </div>
+
+    <script>
+        const $ = s => document.querySelector(s);
+        function atualizar() {
+            const cor = $('input[name=cores]:checked');
+            if (cor) $('#pl_preview').style.setProperty('--cor', cor.dataset.hex);
+            const est = $('input[name=estilo_botao]:checked');
+            if (est) $('#pl_botao').dataset.estilo = est.value;
+            $('#pl_nome').textContent = $('#id_nome').value || 'Nome da loja';
+            const t = $('#id_texto_banner').value;
+            $('#pl_texto').textContent = t || 'Texto do banner';
+            $('#pl_contador').textContent = t.length + '/80';
+        }
+        function lerImagem(input, aoCarregar) {
+            const f = input.files[0];
+            if (!f) return;
+            const r = new FileReader();
+            r.onload = e => aoCarregar(e.target.result);
+            r.readAsDataURL(f);
+        }
+        $('#id_logo').addEventListener('change', e => lerImagem(e.target, url => {
+            const img = $('#pl_logo'); img.src = url; img.style.display = 'block';
+        }));
+        $('#id_banner').addEventListener('change', e => lerImagem(e.target, url => {
+            $('#pl_banner').style.backgroundImage = `url('${url}')`;
+        }));
+        document.addEventListener('input', atualizar);
+        document.addEventListener('change', atualizar);
+        atualizar();
+    </script>
 </body>
 </html>

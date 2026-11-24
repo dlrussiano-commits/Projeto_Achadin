@@ -117,3 +117,23 @@ body {
     height: auto;
     margin-top: 30px;
 }
+
+.barra_busca {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 16px;
+}
+.barra_busca input {
+    flex: 1;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+}
+.barra_busca button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}

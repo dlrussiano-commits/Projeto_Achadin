@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <title>Achadin</title>
     <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
+
     <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
     <link rel="stylesheet" href="{% static 'core/desing_categorias.css' %}">
     <link rel="stylesheet" href="{% static 'loja/desing_loja.css' %}">
     <link rel="stylesheet" href="{% static 'produto/desing_comprar.css' %}" >
+    <style>
+      :root { --cor: {{ loja.cor_hex }}; }
+      .banner-loja { background: var(--cor); color: #fff; padding: 40px; font-size: 28px; border-radius: 12px; }
+      .btn-loja { background: var(--cor); color: #fff; border: 2px solid var(--cor); padding: 8px 18px; border-radius: 6px; }
+      .btn-loja.contorno { background: transparent; color: var(--cor); }
+      .btn-loja.redondo { border-radius: 999px; }
+    </style>
 </head>
 <body>
     <nav class="home_bar">
@@ -22,6 +30,9 @@
         <a class="home_bar_a">Conta</a>
         <a class="home_bar_a">Sair</a>
     </nav>
+
+    {% if loja.texto_banner %}<div class="banner-loja">{{ loja.texto_banner }}</div>{% endif %}
+    <a href="#" class="btn-loja {{ loja.estilo_botao }}">Ver produtos</a>
 
     <div class="layout_principal">
         <main class="conteudo_central">

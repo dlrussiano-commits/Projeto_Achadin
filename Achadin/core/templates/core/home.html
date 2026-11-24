@@ -12,21 +12,7 @@
 </head>
 <body>
 
-<nav class="home_bar">
-        <a href="{% url 'achadin_home' %}" class="icone_achadin">
-            <img src="{% static 'core/icones/icone_achadin.svg'%}" alt="ícone do Achadin">
-        </a>
-        <a class="home_bar_a">Ofertas do Dia</a>
-        <a class="home_bar_a">Comprar novamente</a>
-        <a class="home_bar_a">Carrinho</a>
-        <a href="{% url 'criar' %}" class="home_bar_a">Criar Loja</a>
-        <a class="home_bar_a">Conta</a>
-        <a href="{% url 'criar_produto' %}" class="home_bar_a">Criar produto</a>
-        <form method="post" action="{% provider_login_url 'google' %}">
-            {% csrf_token %}
-            <button class="home_bar_a" type="submit">Entrar</button>
-        </form>
-    </nav>
+{% include 'core/_navbar.html' %}
 
 <div class="layout_principal">
     <aside class="coluna_lateral"></aside>
