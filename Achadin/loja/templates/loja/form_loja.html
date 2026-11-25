@@ -3,139 +3,316 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Achadin</title>
     <link rel="icon" href="{% static 'core/icones/logo.svg' %}">
-    <link rel="stylesheet" href="{% static 'core/desing_home.css' %}">
-    <link rel="stylesheet" href="{% static 'loja/desing_form.css' %}">
     <style>
-        .pl_grade { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        @media (max-width: 900px) { .pl_grade { grid-template-columns: 1fr; } }
-        .pl_cores, .pl_estilos { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 16px; }
-        .pl_cores label { cursor: pointer; }
-        .pl_cores input, .pl_estilos input { position: absolute; opacity: 0; }
-        .pl_bolinha { display: block; width: 36px; height: 36px; border-radius: 50%; border: 3px solid transparent; }
-        .pl_cores input:checked + .pl_bolinha { border-color: #fff; outline: 3px solid #1976f3; }
-        .pl_estilos span { display: block; padding: 10px 18px; border: 2px solid #ccc; border-radius: 8px; cursor: pointer; }
-        .pl_estilos input:checked + span { border-color: #1976f3; font-weight: bold; }
-        .pl_contador { font-size: 12px; opacity: .7; }
-        .pl_erro { color: #e53935; font-size: 13px; }
+        :root {
+            --fundo: #eef2f9;
+            --painel: #17233a;
+            --campo: #1f2e4a;
+            --linha: #3a4e78;
+            --texto: #f1f5ff;
+            --suave: #aebbd6;
+            --azul: #1e90ff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--fundo);
+            color: var(--texto);
+            font-family: Helvetica, Arial, sans-serif;
+        }
 
-        #pl_preview { --cor: #1976f3; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; background: #fff; color: #222; }
-        .pl_topo { display: flex; align-items: center; gap: 10px; padding: 12px; background: #0d1b3a; color: #fff; }
-        .pl_topo img { height: 32px; display: none; }
-        #pl_banner { padding: 40px 20px; background: var(--cor) center/cover; color: #fff; }
-        #pl_banner h2 { margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
-        #pl_botao { padding: 10px 20px; border: 2px solid #fff; background: var(--cor); color: #fff; font-weight: bold; }
-        #pl_botao[data-estilo="solido"] { background: var(--cor); border-color: var(--cor); }
-        #pl_botao[data-estilo="contorno"] { background: transparent; border-color: #fff; }
-        #pl_botao[data-estilo="redondo"] { background: var(--cor); border-color: var(--cor); border-radius: 999px; }
+        /* Estrutura: formulário à esquerda, prévia à direita */
+        .pagina {
+            --cor: #1e90ff;
+            --sobre: #ffffff;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 32px 20px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 24px;
+            align-items: start;
+        }
+        .painel {
+            background: var(--painel);
+            border-radius: 20px;
+            padding: 36px;
+        }
+        h1 {
+            margin: 0 0 28px;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--azul);
+        }
+
+        /* Grupos de campos */
+        fieldset { border: 0; padding: 0; margin: 0 0 28px; min-width: 0; }
+        legend, .rotulo {
+            display: block;
+            padding: 0;
+            margin-bottom: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--texto);
+        }
+        .dica { margin: 8px 0 0; font-size: 13px; color: var(--suave); }
+
+        .painel input[type=text],
+        .painel select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--linha);
+            border-radius: 10px;
+            background: var(--campo);
+            color: var(--texto);
+            font-size: 16px;
+        }
+        .painel input[type=text]:focus,
+        .painel select:focus { outline: none; border-color: var(--azul); }
+
+        .painel input[type=file] { width: 100%; color: var(--suave); font-size: 14px; }
+        .painel input[type=file]::file-selector-button {
+            margin-right: 12px;
+            padding: 9px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--azul);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .painel a { color: var(--azul); }
+
+        /* Seletor de cor */
+        .cores { display: flex; flex-wrap: wrap; gap: 14px; }
+        .cores label, .estilos label { position: relative; cursor: pointer; }
+        .cores input, .estilos input {
+            position: absolute; opacity: 0; width: 1px; height: 1px;
+        }
+        .cor {
+            display: block;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+        }
+        .cor-r  { background: #e53935; }
+        .cor-b  { background: #1976f3; }
+        .cor-y  { background: #fdd835; }
+        .cor-g  { background: #43a047; }
+        .cor-p  { background: #ec407a; }
+        .cor-o  { background: #fb8c00; }
+        .cor-db { background: #0d2a6b; border: 2px solid var(--linha); }
+        .cores input:checked + .cor { box-shadow: 0 0 0 3px var(--painel), 0 0 0 6px #fff; }
+        .cores input:focus-visible + .cor { outline: 3px solid var(--azul); outline-offset: 6px; }
+
+        /* Seletor de estilo do botão: cada opção mostra o próprio estilo */
+        .estilos { display: flex; flex-wrap: wrap; gap: 14px; }
+        .amostra {
+            display: block;
+            min-width: 130px;
+            padding: 12px 22px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--sobre);
+            background: var(--cor);
+            border: 2px solid var(--cor);
+            border-radius: 8px;
+        }
+        .estilo-contorno { background: transparent; color: #fff; }
+        .estilo-redondo { border-radius: 999px; }
+        .estilos input:checked + .amostra { box-shadow: 0 0 0 3px var(--painel), 0 0 0 5px #fff; }
+        .estilos input:checked + .amostra::before { content: "✓ "; }
+        .estilos input:focus-visible + .amostra { outline: 3px solid var(--azul); outline-offset: 5px; }
+
+        .contador { font-size: 13px; color: var(--suave); text-align: right; margin-top: 6px; }
+
+        /* Botões de ação */
+        .acoes { display: flex; gap: 12px; flex-wrap: wrap; }
+        .botao, .botao_sec {
+            padding: 13px 26px;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .botao { border: 0; background: var(--azul); color: #fff; }
+        .botao_sec { border: 2px solid var(--linha); background: transparent; color: var(--texto) !important; }
+        .botao:hover { filter: brightness(1.1); }
+        .botao_sec:hover { border-color: #fff; }
+
+        .erro {
+            margin-bottom: 24px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: #4a1f2a;
+            border: 2px solid #e5586f;
+            color: #ffd9df;
+            font-size: 15px;
+        }
+        .erro ul { margin: 8px 0 0; padding-left: 20px; }
+
+        /* Prévia */
+        .previa { position: sticky; top: 20px; }
+        .previa_titulo { margin: 0 0 10px; font-weight: 700; color: #33415f; }
+        .mini {
+            background: #fff;
+            color: #1a2236;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(23, 35, 58, .15);
+        }
+        .mini_banner {
+            background: var(--cor);
+            color: var(--sobre);
+            padding: 36px 20px;
+            font-size: 22px;
+            font-weight: 800;
+            overflow-wrap: anywhere;
+        }
+        .mini_corpo { padding: 18px 20px 22px; }
+        .mini_corpo strong { display: block; margin-bottom: 14px; font-size: 17px; overflow-wrap: anywhere; }
+        .btn-loja {
+            display: inline-block;
+            padding: 9px 20px;
+            border: 2px solid var(--cor);
+            border-radius: 6px;
+            background: var(--cor);
+            color: var(--sobre);
+            font-weight: 700;
+        }
+        .btn-loja.estilo-contorno { background: transparent; color: var(--cor); }
+        .btn-loja.estilo-redondo { border-radius: 999px; }
+
+        @media (max-width: 820px) {
+            .pagina { grid-template-columns: minmax(0, 1fr); }
+            .previa { position: static; }
+            .painel { padding: 24px; }
+        }
     </style>
 </head>
 <body>
-    <div class="layout_principal">
-        <aside class="coluna_lateral"></aside>
-        <main class="conteudo_central_2">
-            <div class="form_externo">
-                <h1>{% if form.instance.pk %}Editar loja{% else %}Personalize sua loja{% endif %}</h1>
+<div class="pagina" id="pagina">
 
-                <div class="pl_grade">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <div class="form_display">
-                        <label class="form_nome">{{ form.nome.label }}</label>
-                        {{ form.nome }}
-                        <span class="pl_erro">{{ form.nome.errors }}</span>
+    <form method="post" enctype="multipart/form-data" class="painel" id="form_loja">
+        {% csrf_token %}
+        <h1>{% if form.instance.pk %}Editar loja{% else %}Criar loja{% endif %}</h1>
 
-                        <label class="form_nome">{{ form.logo.label }}</label>
-                        {{ form.logo }}
-                        <span class="pl_erro">{{ form.logo.errors }}</span>
-
-                        <label class="form_nome">{{ form.categoria.label }}</label>
-                        {{ form.categoria }}
-                        <span class="pl_erro">{{ form.categoria.errors }}</span>
-
-                        <label class="form_nome">Cor principal</label>
-                        <div class="pl_cores">
-                            <label><input type="radio" name="cores" value="b" data-hex="#1976f3" {% if form.cores.value == 'b' %}checked{% endif %}><span class="pl_bolinha" style="background:#1976f3"></span></label>
-                            <label><input type="radio" name="cores" value="db" data-hex="#0d2a6b" {% if form.cores.value == 'db' %}checked{% endif %}><span class="pl_bolinha" style="background:#0d2a6b"></span></label>
-                            <label><input type="radio" name="cores" value="p" data-hex="#ec407a" {% if form.cores.value == 'p' %}checked{% endif %}><span class="pl_bolinha" style="background:#ec407a"></span></label>
-                            <label><input type="radio" name="cores" value="r" data-hex="#e53935" {% if form.cores.value == 'r' %}checked{% endif %}><span class="pl_bolinha" style="background:#e53935"></span></label>
-                            <label><input type="radio" name="cores" value="o" data-hex="#fb8c00" {% if form.cores.value == 'o' %}checked{% endif %}><span class="pl_bolinha" style="background:#fb8c00"></span></label>
-                            <label><input type="radio" name="cores" value="y" data-hex="#fdd835" {% if form.cores.value == 'y' %}checked{% endif %}><span class="pl_bolinha" style="background:#fdd835"></span></label>
-                            <label><input type="radio" name="cores" value="g" data-hex="#43a047" {% if form.cores.value == 'g' %}checked{% endif %}><span class="pl_bolinha" style="background:#43a047"></span></label>
-                        </div>
-                        <span class="pl_erro">{{ form.cores.errors }}</span>
-
-                        <label class="form_nome">Estilo dos botões</label>
-                        <div class="pl_estilos">
-                            <label><input type="radio" name="estilo_botao" value="solido" {% if form.estilo_botao.value == 'solido' %}checked{% endif %}><span>Sólido</span></label>
-                            <label><input type="radio" name="estilo_botao" value="contorno" {% if form.estilo_botao.value == 'contorno' %}checked{% endif %}><span>Contorno</span></label>
-                            <label><input type="radio" name="estilo_botao" value="redondo" {% if form.estilo_botao.value == 'redondo' %}checked{% endif %}><span>Arredondado</span></label>
-                        </div>
-
-                        <label class="form_nome">{{ form.banner.label }}</label>
-                        {{ form.banner }}
-                        <span class="pl_erro">{{ form.banner.errors }}</span>
-
-                        <label class="form_nome">Texto do banner</label>
-                        {{ form.texto_banner }}
-                        <span class="pl_contador" id="pl_contador">0/80</span>
-                        <span class="pl_erro">{{ form.texto_banner.errors }}</span>
-                    </div>
-                    <button type="submit" class="home_bar_a_2">Salvar</button>
-                    <a class="home_bar_a_2" href="{% url 'achadin_home' %}">Voltar</a>
-                </form>
-
-                <div>
-                    <h3>Visualização da sua loja</h3>
-                    <div id="pl_preview">
-                        <div class="pl_topo">
-                            <img id="pl_logo" alt="logo"
-                                 {% if form.instance.logo %}src="{{ form.instance.logo.url }}" style="display:block"{% endif %}>
-                            <strong id="pl_nome">Nome da loja</strong>
-                        </div>
-                        <div id="pl_banner"
-                             {% if form.instance.banner %}style="background-image:url('{{ form.instance.banner.url }}')"{% endif %}>
-                            <h2 id="pl_texto">Texto do banner</h2>
-                            <button type="button" id="pl_botao" data-estilo="solido">Ver ofertas</button>
-                        </div>
-                    </div>
-                </div>
-                </div>
+        {% if form.errors %}
+            <div class="erro" role="alert">
+                <strong>Não foi possível salvar.</strong> Corrija os campos abaixo:
+                {{ form.errors }}
             </div>
-        </main>
-        <aside class="coluna_lateral"></aside>
-    </div>
+        {% endif %}
 
-    <script>
-        const $ = s => document.querySelector(s);
-        function atualizar() {
-            const cor = $('input[name=cores]:checked');
-            if (cor) $('#pl_preview').style.setProperty('--cor', cor.dataset.hex);
-            const est = $('input[name=estilo_botao]:checked');
-            if (est) $('#pl_botao').dataset.estilo = est.value;
-            $('#pl_nome').textContent = $('#id_nome').value || 'Nome da loja';
-            const t = $('#id_texto_banner').value;
-            $('#pl_texto').textContent = t || 'Texto do banner';
-            $('#pl_contador').textContent = t.length + '/80';
+        <fieldset>
+            <legend><label for="id_nome">Nome da loja</label></legend>
+            {{ form.nome }}
+        </fieldset>
+
+        <fieldset>
+            <legend>Logo</legend>
+            {{ form.logo }}
+        </fieldset>
+
+        <fieldset>
+            <legend><label for="id_categoria">Categoria</label></legend>
+            {{ form.categoria }}
+        </fieldset>
+
+        <fieldset>
+            <legend>Cor principal</legend>
+            <div class="cores">
+                {% for value, label in form.cores.field.choices %}{% if value %}
+                    <label title="{{ label }}">
+                        <input type="radio" name="cores" value="{{ value }}" aria-label="{{ label }}"
+                               {% if form.cores.value == value %}checked{% endif %}>
+                        <span class="cor cor-{{ value }}"></span>
+                    </label>
+                {% endif %}{% endfor %}
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estilo dos botões</legend>
+            <div class="estilos">
+                {% for value, label in form.estilo_botao.field.choices %}{% if value %}
+                    <label>
+                        <input type="radio" name="estilo_botao" value="{{ value }}"
+                               {% if form.estilo_botao.value == value %}checked{% endif %}>
+                        <span class="amostra estilo-{{ value }}">{{ label }}</span>
+                    </label>
+                {% endif %}{% endfor %}
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Imagem do banner</legend>
+            {{ form.banner }}
+        </fieldset>
+
+        <fieldset>
+            <legend><label for="id_texto_banner">Texto do banner</label></legend>
+            <input type="text" name="texto_banner" id="id_texto_banner" maxlength="80"
+                   value="{{ form.texto_banner.value|default_if_none:'' }}">
+            <div class="contador" id="contador">0/80</div>
+        </fieldset>
+
+        <div class="acoes">
+            <button type="submit" class="botao">Salvar loja</button>
+            <a href="{% url 'achadin_home' %}" class="botao_sec">Voltar</a>
+        </div>
+    </form>
+
+    <aside class="previa" aria-label="Prévia da loja">
+        <p class="previa_titulo">Prévia da sua loja</p>
+        <div class="mini">
+            <div class="mini_banner" id="p_texto">Texto do banner</div>
+            <div class="mini_corpo">
+                <strong id="p_nome">Nome da loja</strong>
+                <span class="btn-loja estilo-solido" id="p_botao">Ver produtos</span>
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+<script>
+    const pagina = document.getElementById('pagina');
+    const f = document.getElementById('form_loja');
+    const botao = document.getElementById('p_botao');
+
+    // Se nenhuma cor veio marcada (loja nova), marca a primeira
+    if (!f.querySelector('input[name=cores]:checked')) {
+        const primeira = f.querySelector('input[name=cores]');
+        if (primeira) primeira.checked = true;
+    }
+
+    function atualizar() {
+        const cor = f.querySelector('input[name=cores]:checked');
+        if (cor) {
+            const rgb = getComputedStyle(cor.nextElementSibling).backgroundColor;
+            const [r, g, b] = rgb.match(/\d+/g).map(Number);
+            const claro = (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.6;
+            pagina.style.setProperty('--cor', rgb);
+            pagina.style.setProperty('--sobre', claro ? '#1a1a1a' : '#ffffff');
         }
-        function lerImagem(input, aoCarregar) {
-            const f = input.files[0];
-            if (!f) return;
-            const r = new FileReader();
-            r.onload = e => aoCarregar(e.target.result);
-            r.readAsDataURL(f);
-        }
-        $('#id_logo').addEventListener('change', e => lerImagem(e.target, url => {
-            const img = $('#pl_logo'); img.src = url; img.style.display = 'block';
-        }));
-        $('#id_banner').addEventListener('change', e => lerImagem(e.target, url => {
-            $('#pl_banner').style.backgroundImage = `url('${url}')`;
-        }));
-        document.addEventListener('input', atualizar);
-        document.addEventListener('change', atualizar);
-        atualizar();
-    </script>
+        const estilo = f.querySelector('input[name=estilo_botao]:checked');
+        botao.className = 'btn-loja estilo-' + (estilo ? estilo.value : 'solido');
+
+        const texto = f.elements['texto_banner'].value;
+        document.getElementById('p_texto').textContent = texto || 'Texto do banner';
+        document.getElementById('p_nome').textContent = f.elements['nome'].value || 'Nome da loja';
+        document.getElementById('contador').textContent = texto.length + '/80';
+    }
+
+    f.addEventListener('input', atualizar);
+    f.addEventListener('change', atualizar);
+    atualizar();
+</script>
 </body>
 </html>

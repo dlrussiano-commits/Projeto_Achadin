@@ -137,3 +137,46 @@ body {
     border-radius: 0 6px 6px 0;
     cursor: pointer;
 }
+.esteira {
+    overflow: hidden;
+    width: 100%;
+    padding: 24px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.esteira_faixa {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: esteira 50s linear infinite;
+}
+.esteira:hover .esteira_faixa { animation-play-state: paused; }
+
+.esteira .orientacao_a {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+.esteira .botao_categoria_imagem { width: 170px; height: 170px; }
+.esteira .atributos_span { white-space: nowrap; text-align: center; }
+
+@keyframes esteira {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .esteira_faixa { animation: none; }
+    .esteira { overflow-x: auto; }
+}
+
+h2, h3, h5, .card-title, .card-text, .nome_da_logo {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}

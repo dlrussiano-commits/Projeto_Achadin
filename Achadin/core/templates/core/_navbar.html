@@ -6,7 +6,7 @@
     </a>
 
     <form method="get" action="{% url 'buscar' %}" class="barra_busca">
-        <input type="search" name="q" value="{{ termo|default:'' }}" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+        <input type="search" name="q" maxlength="100" value="{{ termo|default:'' }}" placeholder="Buscar produtos..." aria-label="Buscar produtos">
         <button type="submit">Buscar</button>
     </form>
 
